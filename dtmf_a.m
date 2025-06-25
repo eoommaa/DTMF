@@ -1,4 +1,4 @@
-% DTMF tones corresponding to digits 0–9 when pressed on a telephone keypad
+% Listening to DTMF tones corresponding to digits 0–9 when pressed on a telephone keypad using `sound`
 
 N = 0:999;          % Sample indices
 Fs = 8192;          % Sampling frequency (Hz)
