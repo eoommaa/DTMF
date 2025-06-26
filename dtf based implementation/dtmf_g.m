@@ -1,4 +1,4 @@
-% Energy Spectrum of DTMF Digit 8 Using DFT Based Implementation
+% Energy Spectrum of DTMF for Digit 8 Using DFT Based Implementation
 
 load('dtmf_signals.mat', 'd8');     % Load DTMF signal for digit 8 (d8)
 Fs = 8192;      % Sampling frequency
