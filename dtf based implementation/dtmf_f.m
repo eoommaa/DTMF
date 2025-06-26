@@ -1,4 +1,4 @@
-% Corresponding Index k for the DTMF Frequencies
+% Corresponding Index k for the DTMF tones
 
 load touch.mat;         % Load the file
 x = x1;                 % Use x1 as the signal
