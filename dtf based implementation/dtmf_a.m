@@ -4,8 +4,8 @@ N = 0:999;          % Sample indices
 Fs = 8192;          % Sampling frequency (Hz)
 t = N/Fs;           % Time vector (s)
 
-% Define DTMF freq for digits 0-9 in w (omega for [low freq, high freq])
-dtmf_freqs = [
+% Define DTMF for digits 0-9 in w (omega for [low freq, high freq])
+dtmf = [
     941, 1336;      % 0
     697, 1209;      % 1
     697, 1336;      % 2
@@ -22,8 +22,8 @@ all_tones = [];     % Matrix to store all tones
 
 % Generate signals d0 to d9
 for digit = 0:9
-    tone = sin(2*pi*dtmf_freqs(digit+1, 1) * t) + ...
-           sin(2*pi*dtmf_freqs(digit+1, 2) * t);    % Sum of 2 sine waves
+    tone = sin(2*pi*dtmf(digit+1, 1) * t) + ...
+           sin(2*pi*dtmf(digit+1, 2) * t);    % Sum of 2 sine waves
     % Sum of 2 sine waves is [row #, 1 (low freq) / 2 (high freq)]
     eval(['d' num2str(digit) ' = tone;']);          % Stores the tone in the variable (eg d0-d9)
 
