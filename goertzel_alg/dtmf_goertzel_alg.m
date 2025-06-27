@@ -1,4 +1,4 @@
-% DFT Magnitude and Energy of Digit 8 Using Goertzel Algorithm
+% DFT Magnitude and Energy Spectrum of Digit 8 Using Goertzel Algorithm
 
 Fs = 8192;          % Sampling freq
 N = 2048;           % Number of FFT points
@@ -43,7 +43,8 @@ xlabel("Frequency (Hz)")
 ylabel("DFT Magnitude |X[k]|")
 title('DFT Magnitude of Digit 8 Using Goertzel Algorithm')
 legend('Magnitude', 'd8''s DTMF (852 Hz & 1336 Hz)')
-grid
+grid on
+ylim([0, 1400]);
 
 % Plot d8's energy
 subplot(2,1,2)
@@ -57,4 +58,5 @@ xlabel("Frequency (Hz)")
 ylabel("Energy |X[k]|^{2}")
 title('Energy Spectrum of Digit 8 Using Goertzel Algorithm')
 legend('Energy', 'd8''s DTMF (852 Hz & 1336 Hz)')
-grid
+grid on
+ylim([0, 14*10^5]);
