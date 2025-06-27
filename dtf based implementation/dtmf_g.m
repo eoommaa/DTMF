@@ -28,8 +28,6 @@ dtmf_energy = energy(k_indices);
 % Display results
 disp('DFT Based Implementation''s Magnitude & Energy:');
 disp(table(dtmf_freqs(:), dtmf_mag(:), dtmf_energy(:), 'VariableNames', {'Frequency (Hz)', 'Magnitude', 'Energy'}));
-%disp('DFT Based Implementation''s Energy:');
-%disp(table(dtmf_freqs(:), dtmf_energy(:), 'VariableNames', {'Frequency (Hz)', 'Energy'}));
 
 
 %-----------------------------------------------
