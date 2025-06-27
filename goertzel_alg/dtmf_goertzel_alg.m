@@ -23,14 +23,16 @@ dft_mag = abs(goertzel(d8_signal, k));
 energy = dft_mag.^2;
 
 % Display results
-disp('Goertzel Algorithm''s DFT Magnitudes:');
-disp(table(dtmf_freqs(:), ydft(:), 'VariableNames', {'Frequency (Hz)', 'Magnitude'}));
-disp('Goertzel Algorithm''s Energy:');
-disp(table(dtmf_freqs(:), energy(:), 'VariableNames', {'Frequency (Hz)', 'Energy'}));
+disp('Goertzel Algorithm''s DFT Magnitude and Energy:');
+disp(table(dtmf_freqs(:), ydft(:), energy(:), 'VariableNames', {'Frequency (Hz)', 'Magnitude', 'Energy'}));
+
 
 %-----------------------------------------------
-% Plot the DFT magnitude of d8
+% Create a subplot for d8's DFT magnitude and energy
 figure;
+
+% Plot d8's DFT magnitude
+subplot(2,1,1)
 stem(dtmf_freqs, ydft)
 hold on
 d8_freqs = [852, 1336];
@@ -39,20 +41,20 @@ stem(dtmf_freqs(idx), ydft(idx));               % d8's DTMF
 % Add labels and titles
 xlabel("Frequency (Hz)")
 ylabel("DFT Magnitude |X[k]|")
-title('DFT Magnitudes of Digit 8 Using Goertzel Algorithm')
-legend('Magnitude', 'd8''s DTMF (852 Hz, 1336 Hz)')
+title('DFT Magnitude of Digit 8 Using Goertzel Algorithm')
+legend('Magnitude', 'd8''s DTMF (852 Hz & 1336 Hz)')
 grid
 
-% Plot the energy of d8
-figure;
+% Plot d8's energy
+subplot(2,1,2)
 stem(dtmf_freqs, energy)
 hold on
 d8_freqs = [852, 1336];
-[~, idx] = ismember(d8_freqs, dtmf_freqs);      % Find indices of d8 frequencies
+[~, idx] = ismember(d8_freqs, dtmf_freqs);      % Find indices of d8 freq
 stem(dtmf_freqs(idx), energy(idx));             % d8's DTMF freqs
 % Add labels and titles
 xlabel("Frequency (Hz)")
 ylabel("Energy |X[k]|^{2}")
 title('Energy Spectrum of Digit 8 Using Goertzel Algorithm')
-legend('Energy', 'd8''s DTMF (852 Hz, 1336 Hz)')
+legend('Energy', 'd8''s DTMF (852 Hz & 1336 Hz)')
 grid
