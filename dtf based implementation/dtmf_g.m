@@ -25,11 +25,11 @@ peak_freqs = freq_axis(locs);       % Actual DTMF where peaks occur
 dtmf_mag = mag(k_indices);
 dtmf_energy = energy(k_indices);
 
-
-%-----------------------------------------------
 % Display results
-disp('DFT Based Implementation''s Magnitude:');
+disp('DFT Based Implementation''s Magnitude & Energy:');
 disp(table(dtmf_freqs(:), dtmf_mag(:), dtmf_energy(:), 'VariableNames', {'Frequency (Hz)', 'Magnitude', 'Energy'}));
+%disp('DFT Based Implementation''s Energy:');
+%disp(table(dtmf_freqs(:), dtmf_energy(:), 'VariableNames', {'Frequency (Hz)', 'Energy'}));
 
 
 %-----------------------------------------------
@@ -43,6 +43,6 @@ stem(peak_freqs, peaks);                % d8's DTMF
 xlabel('Frequency (Hz)');
 ylabel('Energy |D(e^{jω})|^{2}');
 title('Energy Spectrum of Digit 8 Using DFT Based Implementation');
-legend('Energy', 'DTMF', 'd8''s DTMF (852 Hz, 1336 Hz)');
+legend('Energy', 'DTMF', 'd8''s DTMF (852 Hz & 1336 Hz)');
 grid on;
 xlim([600, 1500]);      % Zoom to DTMF range
