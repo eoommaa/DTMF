@@ -114,6 +114,6 @@
 [^2]: Code by [`@eoommaa`](https://github.com/eoommaa) (Part A, F, G, and Goertzel Algorithm)
 [^3]: Code by [`@TeddyDo915K`](https://github.com/TeddyDo915K) (Part F, H, and I)
 [^4]: [MATLAB function `fft` documentation](https://www.mathworks.com/help/matlab/ref/fft.html)
-[^5]: [touch.mat file](https://github.com/eoommaa/DTMF/blob/main/dtf%20based%20implementation/touch.mat)
+[^5]: [touch.mat file](https://github.com/eoommaa/DTMF/blob/1bcf740b5847b53dec996f16f645af4923e21630/DTF%20Based%20Implementation/touch.mat)
 [^6]: [MATLAB function `goertzel` documentation](https://www.mathworks.com/help/signal/ref/goertzel.html?searchHighlight=Goertzel&s_tid=srchtitle_support_results_1_Goertzel)
 [^7]: [DFT Estimation with the Goertzel Algorithm](https://www.mathworks.com/help/signal/ug/dft-estimation-with-the-goertzel-algorithm.html)
