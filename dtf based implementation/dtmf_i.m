@@ -1,4 +1,4 @@
-% ttdecode2 Function
+% ttdecode2(x) Function
 
 function digits = ttdecode2(x)
    % ttdecode2 convert touch tone signals into phone numbers that has a
