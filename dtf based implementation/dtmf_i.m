@@ -50,9 +50,7 @@ end
 
 
 %-----------------------------------------------
-disp('Digits from hardx1:');
 digits1 = ttdecode2(hardx1);
-disp(digits1);
-disp('Digits from hardx2:');
 digits2 = ttdecode2(hardx2);
-disp(digits2);
+disp(['Digits from hardx1: ', num2str(digits1)]);
+disp(['Digits from hardx2: ', num2str(digits2)]);
