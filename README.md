@@ -88,7 +88,7 @@
 
 # Goertzel Algorithm Based Decoder Implementation
 ## DFT Magnitude and Energy Spectrum of DTMF for Digit 8[^2]
-- Goertzel Algorithm - An efficent method to compute the spectrum of a signal when only a small number of spectral values or frequency bins needs computing
+- Goertzel algorithm - An efficent method to compute the spectrum of a signal when only a small number of spectral values or frequency bins needs computing
   - Full length of DFT does not need to be computed 
 - **Task:** Compute Digit 8's DFT magnitude $|D_8[k]|$ and energy $|D_8[k]|^2$ using the MATLAB function `goertzel`[^6]
 
