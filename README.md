@@ -1,6 +1,4 @@
 # Dual-Tone Multi-Frequency (DTMF)
-- [ ] [`@TeddyDo915K`](https://github.com/TeddyDo915K): Part ~f~, h (5 codes), i
-
 - Dual-tone multi-frequency (DTMF) - The basis for voice communications control and is used worldwide in modern telephony to dial numbers and configure switch board
 - DTMF tone - Commonly known as a digit, is a signal consisting the sum of two sinusoid or tones with frequencies from two exclusive groups (low and high group frequency)
   
@@ -21,16 +19,15 @@
 
 # DFT Based Implementation
 ## DTMF Tones Corresponding to Digits 0-9 When Pressed on a Telephone Keypad[^2]
-- **Task:** Listen to each DTMF tones using the MATLAB function `sound`
+- **Task:** Listen to each DTMF tone using the MATLAB function `sound`
   
 > Output is literally *beep . . . beep . . .*
 
   
-## Corresponding Index $k$ for DTMF Tones[^2][^3]
+## Corresponding Index $k$ for DTMF Digits[^2][^3]
 - **Task:** Compute 2048 samples of $X(e^{j\omega})$ to determine its corresponding index $k$ using the MATLAB function `fft`[^4]
   
 ### Results
-
 | Frequency (Hz) | Index $k$ |
 | :-: | :-: |
 | 697 | 175 |
@@ -49,7 +46,6 @@
 - **Task:** Compute Digit 8's energy $|D_8(e^{j\omega _k})|^2$ using the MATLAB function `ftt`
 
 ### Results
-
 ***DFT Based Implementation's Magnitude & Energy***
 | Frequency (Hz) | Magnitude | Energy |
 | :-: | :-: | :-: |
@@ -67,14 +63,36 @@
 ![image](https://github.com/user-attachments/assets/2d234e31-44e5-4ab2-b601-fcde5ff898ad)
 
 
+## `ttdecode(x)` Function[^3]
+- `ttdecode` - MATLAB function that accepts a touch-tone signal as the input with 1000 samples for each digit and is separated by 100 samples of silence, and decodes the input to return it as a phone number
+- **Task:** Test the MATLAB function `ttdecode` on the signals
+
+### Results
+**Decoded phone numbers:**
+
+> 1     2     3     4     5     6     7     8     9     0
+
+> 5     5     5     7     3     1     9
+
+
+## `ttdecode2(x)` Function[^3]
+- `ttdecode2` - MATLAB function where digits and silence can have varying lengths
+- ***Note: Must load the touch.mat file for this part***[^5]
+  - File contains two input signals that are vectors called `hardx1` and `hardx2`
+- **Task:** Test the MATLAB function `ttdecode2` on the two input signals in `touch.mat`
+
+### Results
+> Digits from `hardx1`: 4  9  1  5  8  7  7
+
+> Digits from `hardx2`: 2  5  3  1  0  0  0
+
 # Goertzel Algorithm Based Decoder Implementation
 ## DFT Magnitude and Energy Spectrum of DTMF for Digit 8[^2]
 - Goertzel Algorithm - An efficent method to compute the spectrum of a signal when only a small number of spectral values or frequency bins needs computing
   - Full length of DFT does not need to be computed 
-- **Task:** Compute Digit 8's DFT magnitude $|D_8[k]|$ and energy $|D_8[k]|^2$ using the MATLAB function `goertzel`[^5]
+- **Task:** Compute Digit 8's DFT magnitude $|D_8[k]|$ and energy $|D_8[k]|^2$ using the MATLAB function `goertzel`[^6]
 
 ### Results
-
 ***Goertzel Algorithm's DFT Implementation's Magnitude & Energy***
 | Frequency (Hz) | Magnitude | Energy |
 | :-: | :-: | :-: |
@@ -96,5 +114,6 @@
 [^2]: Code by [`@eoommaa`](https://github.com/eoommaa) (Part A, F, G, and Goertzel Algorithm)
 [^3]: Code by [`@TeddyDo915K`](https://github.com/TeddyDo915K) (Part F, H, and I)
 [^4]: [MATLAB function `fft` documentation](https://www.mathworks.com/help/matlab/ref/fft.html)
-[^5]: [MATLAB function `goertzel` documentation](https://www.mathworks.com/help/signal/ref/goertzel.html?searchHighlight=Goertzel&s_tid=srchtitle_support_results_1_Goertzel)
-[^6]: [DFT Estimation with the Goertzel Algorithm](https://www.mathworks.com/help/signal/ug/dft-estimation-with-the-goertzel-algorithm.html)
+[^5]: [touch.mat file](https://github.com/eoommaa/DTMF/blob/main/dtf%20based%20implementation/touch.mat)
+[^6]: [MATLAB function `goertzel` documentation](https://www.mathworks.com/help/signal/ref/goertzel.html?searchHighlight=Goertzel&s_tid=srchtitle_support_results_1_Goertzel)
+[^7]: [DFT Estimation with the Goertzel Algorithm](https://www.mathworks.com/help/signal/ug/dft-estimation-with-the-goertzel-algorithm.html)
