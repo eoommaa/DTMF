@@ -66,9 +66,11 @@ disp(testout);
 
 %-----------------------------------------------
 % Test signal 1 2 3, each number has to be followed by zeros(1,100) to simulate the pause/silence
-phone = [d5, zeros(1,100), d5, zeros(1,100), d5, zeros(1,100), d7, zeros(1,100), d3, zeros(1,100), d1, zeros(1,100), d9, zeros(1,100)];
+phone = [d1, zeros(1,100), d2, zeros(1,100), d3, zeros(1,100), d4, zeros(1,100), d5, zeros(1,100), d6, zeros(1,100), d7, zeros(1,100), d8, zeros(1,100), d9,zeros(1,100), d0, zeros(1,100)];
+phone2 = [d5, zeros(1,100), d5, zeros(1,100), d5, zeros(1,100), d7, zeros(1,100), d3, zeros(1,100), d1, zeros(1,100), d9, zeros(1,100)];
 
-% Decode and display
+% Decode and display phone number
 testout = ttdecode(phone);
-disp('Decoded phone number:');
+disp('Decoded phone numbers:');
 disp(testout);
+disp(testout2);
