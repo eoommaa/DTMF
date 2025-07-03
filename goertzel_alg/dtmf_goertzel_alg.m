@@ -1,4 +1,4 @@
-% DFT Magnitude and Energy Spectrum of Digit 8 Using Goertzel Algorithm
+% DFT Magnitude and Energy Spectrum of DTFT for Digit 8 Using Goertzel Algorithm
 
 Fs = 8192;          % Sampling freq
 N = 2048;           % Number of FFT points
