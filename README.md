@@ -21,7 +21,7 @@
 ## DTMF Tones Corresponding to Digits 0-9 When Pressed on a Telephone Keypad[^2]
 - **Task:** Listen to each DTMF tone using the MATLAB function `sound`
   
-> Output is literally *beep . . . beep . . .*
+> Comment: The given DTMF tone is a variable beeping sound *beep . . . beep . . .*
 
   
 ## Corresponding Index $k$ for DTMF Digits[^2][^3]
@@ -64,19 +64,22 @@
 
 
 ## `ttdecode(x)` Function[^3]
-- `ttdecode` - MATLAB function that accepts a touch-tone signal as the input with 1000 samples for each digit and is separated by 100 samples of silence, and decodes the input to return it as a phone number
+- `ttdecode` - MATLAB function that accepts a touch-tone signal as the input with 1000 samples for each digit and is separated by 100 samples of silence, and decodes the input to return it as a phone number.
 - **Task:** Test the MATLAB function `ttdecode` on the signals
 
 ### Results
 **Decoded phone numbers:**
+Test output to ensure the code can output all digits:
 
 > 1     2     3     4     5     6     7     8     9     0
+
+Output that satisfy the scope of the project:
 
 > 5     5     5     7     3     1     9
 
 
 ## `ttdecode2(x)` Function[^3]
-- `ttdecode2` - MATLAB function where digits and silence can have varying lengths
+- `ttdecode2` - MATLAB function that can accept a touch-tone signal as the input, where digits and silence can have varying lengths, and decodes the input to return it as a phone number.
 - ***Note: Must load the touch.mat file for this part***[^5]
   - File contains two input signals that are vectors called `hardx1` and `hardx2`
 - **Task:** Test the MATLAB function `ttdecode2` on the two input signals in `touch.mat`
