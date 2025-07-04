@@ -19,11 +19,16 @@
 
 # DFT Based Implementation
 ## DTMF Tones Corresponding to Digits 0-9 When Pressed on a Telephone Keypad[^2]
+- Digits 0-9 are defined in a matrix called `dtmf` over interval $0 \le n \le 999$, where $n$ is the sample indices
+  - The matrix stores each DTMF tone as a pair of frequencies defined as as $[f_L, f_H]$
 - **Task:** Listen to each DTMF tone using the MATLAB function `sound`
-  
-> Comment: The given DTMF tone is a variable beeping sound *beep . . . beep . . .*
 
-  
+### Results
+*Note: First beep is Digit 0*
+
+https://github.com/user-attachments/assets/d005f1db-a5e3-4964-b408-3e9c4b268e8b
+
+
 ## Corresponding Index $k$ for DTMF Digits[^2][^3]
 - **Task:** Compute 2048 samples of $X(e^{j\omega})$ to determine its corresponding index $k$ using the MATLAB function `fft`[^4]
   
@@ -68,20 +73,13 @@
 - **Task:** Test the MATLAB function `ttdecode` on the signals
 
 ### Results
-**Decoded phone numbers:**
+> Test output to ensure the code can output all digits: 1     2     3     4     5     6     7     8     9     0
 
-Test output to ensure the code can output all digits:
-
-> 1     2     3     4     5     6     7     8     9     0
-
-Output that satisfy the scope of the project:
-
-> 5     5     5     7     3     1     9
+> Output that satisfies the scope of the project: 5     5     5     7     3     1     9
 
 
 ## `ttdecode2(x)` Function[^3]
-- `ttdecode2` - MATLAB function that can accept a touch-tone signal as the input, where digits and silence can have varying lengths, and decodes the input to return it as a phone number.
-- ***Note: Must load the touch.mat file for this part***[^5]
+- `ttdecode2` - MATLAB function that can accept a touch-tone signal as the input, where digits and silence can have varying lengths, and decodes the input to return it as a phone number
   - File contains two input signals that are vectors called `hardx1` and `hardx2`
 - **Task:** Test the MATLAB function `ttdecode2` on the two input signals in `touch.mat`
 
@@ -94,7 +92,7 @@ Output that satisfy the scope of the project:
 ## DFT Magnitude and Energy Spectrum of DTMF for Digit 8[^2]
 - Goertzel algorithm - An efficent method to compute the spectrum of a signal when only a small number of spectral values or frequency bins needs computing
   - Full length of DFT does not need to be computed 
-- **Task:** Compute Digit 8's DFT magnitude $|D_8[k]|$ and energy $|D_8[k]|^2$ using the MATLAB function `goertzel`[^6]
+- **Task:** Compute Digit 8's DFT magnitude $|D_8[k]|$ and energy $|D_8[k]|^2$ using the MATLAB function `goertzel`[^5]
 
 ### Results
 ***Goertzel Algorithm's DFT Implementation's Magnitude & Energy***
@@ -118,6 +116,5 @@ Output that satisfy the scope of the project:
 [^2]: Code by [`@eoommaa`](https://github.com/eoommaa) (Part A, F, G, and Goertzel Algorithm)
 [^3]: Code by [`@TeddyDo915K`](https://github.com/TeddyDo915K) (Part F, H, and I)
 [^4]: [MATLAB function `fft` documentation](https://www.mathworks.com/help/matlab/ref/fft.html)
-[^5]: [touch.mat file](https://github.com/eoommaa/DTMF/blob/1bcf740b5847b53dec996f16f645af4923e21630/DTF%20Based%20Implementation/touch.mat)
-[^6]: [MATLAB function `goertzel` documentation](https://www.mathworks.com/help/signal/ref/goertzel.html?searchHighlight=Goertzel&s_tid=srchtitle_support_results_1_Goertzel)
-[^7]: [DFT Estimation with the Goertzel Algorithm](https://www.mathworks.com/help/signal/ug/dft-estimation-with-the-goertzel-algorithm.html)
+[^5]: [MATLAB function `goertzel` documentation](https://www.mathworks.com/help/signal/ref/goertzel.html?searchHighlight=Goertzel&s_tid=srchtitle_support_results_1_Goertzel)
+[^6]: [DFT Estimation with the Goertzel Algorithm](https://www.mathworks.com/help/signal/ug/dft-estimation-with-the-goertzel-algorithm.html)
