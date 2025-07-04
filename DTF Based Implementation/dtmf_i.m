@@ -1,4 +1,5 @@
 % ttdecode2(x) Function
+load touch.mat;
 
 function digits = ttdecode2(x)
    % ttdecode2 convert touch tone signals into phone numbers that has a
