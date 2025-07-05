@@ -71,6 +71,6 @@ phone2 = [d5, zeros(1,100), d5, zeros(1,100), d5, zeros(1,100), d7, zeros(1,100)
 
 % Decode and display phone number
 testout = ttdecode(phone);
-disp('Decoded phone numbers:');
-disp(testout);
-disp(testout2);
+testout2 = ttdecode(phone2);
+disp(['Test output to ensure the code can output all digits: ', num2str(testout)]);
+disp(['Output that satisfies the scope of the project: ', num2str(testout2)]);
