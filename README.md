@@ -113,8 +113,8 @@ https://github.com/user-attachments/assets/d005f1db-a5e3-4964-b408-3e9c4b268e8b
 
 
 [^1]: Discrete-Time Fourier Transform (DTFT). DTFT {x[n]} ⇔ DTFT<sup>-1</sup> {X(e<sup>jω</sup>)}
-[^2]: Code by [`@eoommaa`](https://github.com/eoommaa) (Part A, F, G, and Goertzel Algorithm)
-[^3]: Code by [`@TeddyDo915K`](https://github.com/TeddyDo915K) (Part F, H, and I)
+[^2]: Code by [`eoommaa`](https://github.com/eoommaa) (Part A, F, G, and Goertzel Algorithm)
+[^3]: Code by [`TeddyDo915K`](https://github.com/TeddyDo915K) (Part F, H, and I)
 [^4]: [MATLAB function `fft` documentation](https://www.mathworks.com/help/matlab/ref/fft.html)
 [^5]: [MATLAB function `goertzel` documentation](https://www.mathworks.com/help/signal/ref/goertzel.html?searchHighlight=Goertzel&s_tid=srchtitle_support_results_1_Goertzel)
 [^6]: [DFT Estimation with the Goertzel Algorithm](https://www.mathworks.com/help/signal/ug/dft-estimation-with-the-goertzel-algorithm.html)
