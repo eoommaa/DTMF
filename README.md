@@ -3,8 +3,8 @@
 - DTMF tone - Commonly known as a digit, is a signal consisting the sum of two sinusoid or tones with frequencies from two exclusive groups (low and high group frequency)
   
   A DTMF signal is expressed as $d_N[n] = sin(\omega_on) + sin(\omega_1n)$, where $d_N[n]$ is the digit of keypad of a discrete time index $n$, and $\omega_o$ and $\omega_1$ are the low and high DTMF in radians/sample.
-
-  By using $ω_{o/1} = 2 \times \pi \times \frac {f_{L/H}}{F_s}$ due to the normalized frequency, a DTMF signal is expressed as $d_N[n] = sin(2 \times \pi \times \frac {f_{L}}{F_s} \times n) + sin(2 \times \pi \times \frac {f_{H}}{F_s} \times n)$ in Hz.
+  
+  By using $ω_{o/1} = 2 \times \pi \times f_n$ and the normalized frequency $f_n = \frac {f_{L/H}}{F_s}$, a DTMF signal is expressed as $d_N[n] = sin(2 \times \pi \times \frac {f_{L}}{F_s} \times n) + sin(2 \times \pi \times \frac {f_{H}}{F_s} \times n)$ in Hz.
 - Frequencies are chosen to prevent any harmonic from being incorrectly detected by the receiver as some other DTMF tone
 
 ***DTFT[^1] Frequencies for Digits Sampled at F<sub>s</sub> = 8192 Hz***
