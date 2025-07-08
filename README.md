@@ -113,7 +113,8 @@ https://github.com/user-attachments/assets/d005f1db-a5e3-4964-b408-3e9c4b268e8b
 
 
 [^1]: Discrete-Time Fourier Transform (DTFT). DTFT {x[n]} ⇔ DTFT<sup>-1</sup> {X(e<sup>jω</sup>)}
-[^2]: Code by [`eoommaa`](https://github.com/eoommaa) (Part [A](https://github.com/eoommaa/DTMF/blob/main/DTF%20Based%20Implementation/dtmf_a.m), [F](https://github.com/eoommaa/DTMF/blob/main/DTF%20Based%20Implementation/dtmf_f.m), [G](https://github.com/eoommaa/DTMF/blob/main/DTF%20Based%20Implementation/dtmf_g.m), and Goertzel Algorithm)
+[^2]: Code by [`eoommaa`](https://github.com/eoommaa) (Part [A](https://github.com/eoommaa/DTMF/blob/main/DTF%20Based%20Implementation/dtmf_a.m), [F](https://github.com/eoommaa/DTMF/blob/main/DTF%20Based%20Implementation/dtmf_f.m),
+[G](https://github.com/eoommaa/DTMF/blob/main/DTF%20Based%20Implementation/dtmf_g.m), and [Goertzel Algorithm](https://github.com/eoommaa/DTMF/blob/main/Goertzel%20Algorithm/dtmf_goertzel_alg.m))
 [^3]: Code by [`TeddyDo915K`](https://github.com/TeddyDo915K) (Part [F](https://github.com/eoommaa/DTMF/blob/main/DTF%20Based%20Implementation/dtmf_f.m), [H](https://github.com/eoommaa/DTMF/blob/main/DTF%20Based%20Implementation/dtmf_h.m), and [I](https://github.com/eoommaa/DTMF/blob/main/DTF%20Based%20Implementation/dtmf_i.m))
 [^4]: [MATLAB function `fft` documentation](https://www.mathworks.com/help/matlab/ref/fft.html)
 [^5]: [MATLAB function `goertzel` documentation](https://www.mathworks.com/help/signal/ref/goertzel.html?searchHighlight=Goertzel&s_tid=srchtitle_support_results_1_Goertzel)
