@@ -126,7 +126,7 @@ pspectrum(full_signal,Fs,"spectrogram",FrequencyResolution=50, ...
     OverlapPercent=50,MinTHreshold=-60,FrequencyLimits=[650, 1500])
 % Add labels and titles
 xlabel('Time (ms)');
-ylabel('Frequency');
+ylabel('Frequency (kHz)');
 xlim([0, 0.5]);
 
 % Plot 3-digit DTMF w/ freq res = 90 & overlap = 90%
