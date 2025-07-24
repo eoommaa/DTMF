@@ -32,7 +32,7 @@ disp(table(dtmf_freqs(:), dtmf_mag(:), dtmf_energy(:), 'VariableNames', {'Freque
 
 %-----------------------------------------------
 % Plot the energy spectrum
-figure;
+figure('Position', [0, 0, 830, 740]);
 plot(freq_axis(1:N/2), energy(1:N/2))   % Plot up to Nyquist freq
 hold on;
 stem(dtmf_freqs, dtmf_energy);
