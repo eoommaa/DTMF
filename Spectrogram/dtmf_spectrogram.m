@@ -103,7 +103,7 @@ end
 % Display 3-digit freq peaks
 freq_table = table(digit_num, round(dtmf_freq(:,1)), round(dtmf_freq(:,2)), ...
     'VariableNames', {'Digit', 'Low Frequency (Hz)', 'High Frequency (Hz)'});
-disp('3-Digit DTMF Peak Frequencies:');
+disp('Three-Digit DTMF Peak Frequencies:');
 disp(freq_table);
 
 
