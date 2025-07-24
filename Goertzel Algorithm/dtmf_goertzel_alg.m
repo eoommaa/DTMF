@@ -42,7 +42,7 @@ stem(dtmf_freqs(idx), ydft(idx));               % d8's DTMF
 xlabel("Frequency (Hz)")
 ylabel("DFT Magnitude |X[k]|")
 title('DFT Magnitude of Digit 8 Using Goertzel Algorithm')
-legend('Magnitude', 'd8''s DTMF (852 Hz & 1336 Hz)')
+legend('Magnitude', 'Digit 8''s DTMF (852 Hz & 1336 Hz)')
 grid on
 ylim([0, 1400]);
 
@@ -57,6 +57,6 @@ stem(dtmf_freqs(idx), energy(idx));             % d8's DTMF freqs
 xlabel("Frequency (Hz)")
 ylabel("Energy |X[k]|^{2}")
 title('Energy Spectrum of Digit 8 Using Goertzel Algorithm')
-legend('Energy', 'd8''s DTMF (852 Hz & 1336 Hz)')
+legend('Energy', 'Digit 8''s DTMF (852 Hz & 1336 Hz)')
 grid on
 ylim([0, 14*10^5]);
