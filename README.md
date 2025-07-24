@@ -62,14 +62,14 @@ https://github.com/user-attachments/assets/d005f1db-a5e3-4964-b408-3e9c4b268e8b
 | `1336` | 500.26 | 2.5026e+05 |
 | 1477 | 3.0512 | 9.3098 |
 
-</br>
+<br>
 
 ***Energy Spectrum of Digit 8 Using DFT Based Implementation***
-![image](https://github.com/user-attachments/assets/2d234e31-44e5-4ab2-b601-fcde5ff898ad)
+![image](./plots/dtmf_g.png)
 
 
 ## `ttdecode(x)` Function[^3]
-- `ttdecode` - MATLAB function that accepts a touch-tone signal as the input with 1000 samples for each digit and is separated by 100 samples of silence, and decodes the input to return it as a phone number.
+- `ttdecode` - MATLAB function that accepts a touch-tone signal as the input with 1000 samples for each digit and is separated by 100 samples of silence, and decodes the input to return it as a phone number
 - **Task:** Test the MATLAB function `ttdecode` on the signals
 
 ### Results
@@ -102,20 +102,51 @@ https://github.com/user-attachments/assets/d005f1db-a5e3-4964-b408-3e9c4b268e8b
 | 770 | 8.1237e-13 | 6.5995e-25 |
 | `852` | 1024 | 1.0486e+06 |
 | 941 | 1.7206e-12 | 2.9604e-24 |
-| 1209 | 1.419e-12 | 48.519 |
+| 1209 | 1.419e-12 | 2.0135e-24 |
 | `1336` | 1024 | 1.0486e+06 |
 | 1477 | 6.9756e-13 | 4.8659e-25 |
 
-</br>
+<br>
 
 ***DFT Magnitude and Energy Spectrum of Digit 8 Using Goertzel Algorithm***
-![image](https://github.com/user-attachments/assets/94ef2f46-2160-46d3-a71d-887e54a256fa)
+![image](./plots/dtmf_goertzel_alg.png)
+
+
+# Spectrogram
+## Digit 0123 Spectrogram[^2]
+- `pspectrum` - MATLAB function that computes an FFT-based spectral estimate over each sliding window and visualizes how the frequency content of the signal changes over time[^7]  
+  - Signals are divided into segments, known as windows, allowing better frequency resolution with longer segments and better time resolution with short segments due to the inverse relationship between frequency and time, expressed as
+    $T = \frac {1}{F_s}$
+- Digit 012 are chosen as a three-digit encoded test telephone number
+- **Task:** Compute the spectrogram of a three-digit encoded test telephone number
+
+### Results
+***Three-Digit DTMF Peak Frequencies***
+| Digit | Low Frequency (Hz) | High Frequency (Hz) |
+| :-: | :-: | :-: |
+| 0 | 941 | 1336 |
+| 1 | 697 | 1209 |
+| 2 | 697 | 1336 |
+
+<br>
+
+***Digit 012 Time and Frequency Domain Signals***
+![image](./plots/spectrogram_1.png)
+
+***Digit 012 Individual Power Spectra***
+![image](./plots/spectrogram_2.png)
+
+***Digit 012 DTMF Spectra***
+
+![image](./plots/spectrogram_3.png)
 
 
 [^1]: Discrete-Time Fourier Transform (DTFT). DTFT {x[n]} ⇔ DTFT<sup>-1</sup> {X(e<sup>jω</sup>)}
 [^2]: Code by [`eoommaa`](https://github.com/eoommaa) (Part [A](https://github.com/eoommaa/DTMF/blob/main/DTF%20Based%20Implementation/dtmf_a.m), [F](https://github.com/eoommaa/DTMF/blob/main/DTF%20Based%20Implementation/dtmf_f.m),
-[G](https://github.com/eoommaa/DTMF/blob/main/DTF%20Based%20Implementation/dtmf_g.m), and [Goertzel Algorithm](https://github.com/eoommaa/DTMF/blob/main/Goertzel%20Algorithm/dtmf_goertzel_alg.m))
+[G](https://github.com/eoommaa/DTMF/blob/main/DTF%20Based%20Implementation/dtmf_g.m), [Goertzel Algorithm](https://github.com/eoommaa/DTMF/blob/main/Goertzel%20Algorithm/dtmf_goertzel_alg.m),
+and [Spectrogram](https://github.com/eoommaa/DTMF/blob/main/Spectrogram/dtmf_spectrogram.m))
 [^3]: Code by [`TeddyDo915K`](https://github.com/TeddyDo915K) (Part [F](https://github.com/eoommaa/DTMF/blob/main/DTF%20Based%20Implementation/dtmf_f.m), [H](https://github.com/eoommaa/DTMF/blob/main/DTF%20Based%20Implementation/dtmf_h.m), and [I](https://github.com/eoommaa/DTMF/blob/main/DTF%20Based%20Implementation/dtmf_i.m))
 [^4]: [MATLAB function `fft` documentation](https://www.mathworks.com/help/matlab/ref/fft.html)
 [^5]: [MATLAB function `goertzel` documentation](https://www.mathworks.com/help/signal/ref/goertzel.html?searchHighlight=Goertzel&s_tid=srchtitle_support_results_1_Goertzel)
 [^6]: [DFT Estimation with the Goertzel Algorithm](https://www.mathworks.com/help/signal/ug/dft-estimation-with-the-goertzel-algorithm.html)
+[^7]: [Practical Introduction to Time-Frequency Analysis MATLAB documentation](https://www.mathworks.com/help/signal/ug/practical-introduction-to-time-frequency-analysis.html)
