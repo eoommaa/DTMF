@@ -117,7 +117,7 @@ https://github.com/user-attachments/assets/d005f1db-a5e3-4964-b408-3e9c4b268e8b
 - `pspectrum` - MATLAB function that computes an FFT-based spectral estimate over each sliding window and visualizes how the frequency content of the signal changes over time[^7]  
   - Signals are divided into segments, known as windows, allowing better frequency resolution with longer segments and better time resolution with short segments due to the inverse relationship between frequency and time, expressed as
     $T = \frac {1}{F_s}$
-- Digit 012 are chosen as a three-digit encoded test telephone number
+- Digit 012 is chosen as a three-digit encoded test telephone number
 - **Task:** Compute the spectrogram of a three-digit encoded test telephone number
 
 ### Results
