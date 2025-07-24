@@ -113,7 +113,7 @@ https://github.com/user-attachments/assets/d005f1db-a5e3-4964-b408-3e9c4b268e8b
 
 
 # Spectrogram
-## Digit 0123 Spectrogram[^2]
+## Digit 012 Spectrogram[^2]
 - `pspectrum` - MATLAB function that computes an FFT-based spectral estimate over each sliding window and visualizes how the frequency content of the signal changes over time[^7]  
   - Signals are divided into segments, known as windows, allowing better frequency resolution with longer segments and better time resolution with short segments due to the inverse relationship between frequency and time, expressed as
     $T = \frac {1}{F_s}$
@@ -130,14 +130,13 @@ https://github.com/user-attachments/assets/d005f1db-a5e3-4964-b408-3e9c4b268e8b
 
 <br>
 
-***Digit 012 Time and Frequency Domain Signals***
+***Digit 012 Signal in Time and Frequency Domain***
 ![image](./plots/spectrogram_1.png)
 
-***Digit 012 Individual Power Spectra***
+***Power Spectra of Digits 0-2***
 ![image](./plots/spectrogram_2.png)
 
-***Digit 012 DTMF Spectra***
-
+***Digit 012 DTMF Spectrograms***
 ![image](./plots/spectrogram_3.png)
 
 
