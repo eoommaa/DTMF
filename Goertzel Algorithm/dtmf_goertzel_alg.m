@@ -29,7 +29,7 @@ disp(table(dtmf_freqs(:), ydft(:), energy(:), 'VariableNames', {'Frequency (Hz)'
 
 %-----------------------------------------------
 % Create a subplot for d8's DFT magnitude and energy
-figure;
+figure('Position', [0, 0, 830, 740]);
 
 % Plot d8's DFT magnitude
 subplot(2,1,1)
