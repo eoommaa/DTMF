@@ -49,7 +49,8 @@ xlim([0, 520]);
 
 % Plot freq domain for 3-digit DTMF signal
 subplot(2,1,2);
-[P, F] = pspectrum(full_signal, Fs, 'Leakage', 1, 'FrequencyLimits', [650, 1500]);
+[P, F] = pspectrum(full_signal, Fs, 'Leakage', 1, ...       % Leakage = 1 to use a rectangular window and improve freq res
+    'FrequencyLimits', [650, 1500]);
 plot(F, 10*log10(P));
 % Add labels and titles
 xlabel('Frequency (Hz)');
@@ -60,7 +61,7 @@ xlim([650, 1500]);
 
 
 %-----------------------------------------------
-% Create a subplot for individual DTMF power spectra
+% Create a subplot for power spectra of Digits 0-2
 figure('Position', [0, 0, 1500, 1000]);
 for i = 1:length(dialed_digits)
     digit = dialed_digits(i);
@@ -69,11 +70,11 @@ for i = 1:length(dialed_digits)
        
     % Compute power spectrum
     [P, F] = pspectrum(dtmf_signal, Fs);
-    valid_idx = F >= 600 & F <= 1600;
-    F = F(valid_idx);       % Keep only freq between 600-1500 Hz based on valid_idx
+    valid_idx = F >= 600 & F <= 1500;
+    F = F(valid_idx);       % Keep only freqs 600-1500 Hz based on valid_idx
     P = P(valid_idx);
 
-    % Find DTMF peaks for each 3-digit signal
+    % Find DTMF peaks for each digit signal
     [~, locs] = findpeaks(P, 'SortStr', 'descend', 'NPeaks', 2);
     peak_freqs = sort(F(locs));
     dtmf_freq(i,:) = peak_freqs;
@@ -95,54 +96,65 @@ for i = 1:length(dialed_digits)
     grid on;
     % Digit's DTMF and legend
     digit_dtmf = sprintf('%d Hz & %d Hz', round(dtmf_freq(i,1)), round(dtmf_freq(i,2)));
-    legend([spectrum, dtmf_peaks], ...
-        'Power Spectrum', ...
+    legend([spectrum, dtmf_peaks], 'Power Spectrum', ...
         ['Digit ', num2str(digit), '''s DTMF (', digit_dtmf, ')']);
 end
 
-% Display 3-digit freq peaks
+% Display Digits 0-2's DTMF
 freq_table = table(digit_num, round(dtmf_freq(:,1)), round(dtmf_freq(:,2)), ...
     'VariableNames', {'Digit', 'Low Frequency (Hz)', 'High Frequency (Hz)'});
-disp('Three-Digit DTMF Peak Frequencies:');
+disp('Digits'' DTMF:');
 disp(freq_table);
 
 
 %-----------------------------------------------
-% Create a subplot for 3-digit DTMF signal spectrogram
-% Plot 3-digit DTMF signal spectrogram w/o freq res & overlap
+% Create a subplot for 3-digit DTMF signal spectrogram w/ diff parameters
+% Spectrogram 1: No F_res & 0% overlap, 'pspectrum' will find a good balance bet freq and time res according to the 3-digit signal length
 figure('Position', [0, 0, 830, 740]);
 subplot(2,2,1);
-pspectrum(full_signal,Fs,"spectrogram",Leakage=1,OverlapPercent=0, ...
-    MinThreshold=-10,FrequencyLimits=[650, 1500]);
-% Add labels and titles
-xlabel('Time (ms)');
-ylabel('Frequency');
-xlim([0, 0.5]);
-
-% Trade off time and freq res to get the best rep of 3-digit signal
-% Plot 3-digit DTMF w/ freq res = 50 & overlap = 50% (common overlap) 
-subplot(2,2,2);
-pspectrum(full_signal,Fs,"spectrogram",FrequencyResolution=50, ...
-    OverlapPercent=50,MinTHreshold=-60,FrequencyLimits=[650, 1500])
+pspectrum(full_signal,Fs,"spectrogram",Leakage=1,OverlapPercent=0, ...      % 0% overlap to see the signal duration and locations in time
+    MinThreshold=-10,FrequencyLimits=[650, 1500]);                          % MinThreshold = -10dB to visualize the main freq components
 % Add labels and titles
 xlabel('Time (ms)');
 ylabel('Frequency (kHz)');
 xlim([0, 0.5]);
 
-% Plot 3-digit DTMF w/ freq res = 90 & overlap = 90%
-subplot(2,2,3);
-pspectrum(full_signal,Fs,"spectrogram",FrequencyResolution=90, ...
-    OverlapPercent=99,MinTHreshold=-60,FrequencyLimits=[650, 1500])
+%{
+Experiment w/ 'pspectrum' for trading off time and freq res to get best representation of 3-digit signal
+
+'pspectrum' Parameters
+- FrequencyResolution - Controls window length
+    Low F_res - Short window (choppy transitions) & good T_res
+    High F_res - Longer window (smooth transitions) & poor T_res
+- MinThreshold - Min power limit that will be filtered on the spectrogram (e.g., -10 dB)
+- OverlapPercent - Each window overlaps the % specified in the prev window & the remaining overlap % will be in the new window
+    Low % - Longer T_res and uses a diff data as the prev window
+    High % - Smaller T_res and uses the same data as the prev window
+%}
+
+% Spectrogram 2: F_res = 50 Hz & 50% overlap (common overlap)
+subplot(2,2,2);
+pspectrum(full_signal,Fs,"spectrogram",FrequencyResolution=50, ...
+    OverlapPercent=50,MinThreshold=-60,FrequencyLimits=[650, 1500])         % MinThreshold = -60dB to remove unwanted background content
 % Add labels and titles
 xlabel('Time (ms)');
-ylabel('Frequency');
-xlim([0, 0.5]);
+ylabel('Frequency (kHz)');
+xlim([0.02, 0.5]);
 
-% Plot 3-digit DTMF w/ freq res = 150 & overlap = 99%
+% Spectrogram 3: F_res = 40 Hz & 99% overlap to smooth out the time windows, only 1% new data per window
+subplot(2,2,3);
+pspectrum(full_signal,Fs,"spectrogram",FrequencyResolution=40, ...
+    OverlapPercent=99,MinThreshold=-60,FrequencyLimits=[650, 1500])
+% Add labels and titles
+xlabel('Time (ms)');
+ylabel('Frequency (kHz)');
+xlim([0.03, 0.5]);
+
+% Spectrogram 4: F_res = 150 Hz & 99% overlap
 subplot(2,2,4);
 pspectrum(full_signal,Fs,"spectrogram",FrequencyResolution=150, ...
-    OverlapPercent=99,MinTHreshold=-60,FrequencyLimits=[650, 1500])
+    OverlapPercent=99,MinThreshold=-60,FrequencyLimits=[650, 1500])
 % Add labels and titles
 xlabel('Time (ms)');
-ylabel('Frequency');
-xlim([0, 0.5]);
+ylabel('Frequency (kHz)');
+xlim([0.01, 0.5]);
