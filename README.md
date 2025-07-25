@@ -139,6 +139,7 @@ https://github.com/user-attachments/assets/d005f1db-a5e3-4964-b408-3e9c4b268e8b
 ![image](./plots/spectrogram_2.png)
 
 ***Digit 012 DTMF Spectrograms***
+![image](./plots/spectrogram_3.png)
 
 
 [^1]: Discrete-Time Fourier Transform (DTFT). DTFT {x[n]} ⇔ DTFT<sup>-1</sup> {X(e<sup>jω</sup>)}
