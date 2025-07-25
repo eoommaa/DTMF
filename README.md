@@ -115,8 +115,12 @@ https://github.com/user-attachments/assets/d005f1db-a5e3-4964-b408-3e9c4b268e8b
 # Spectrogram
 ## Digit 012 Spectrogram[^2]
 - `pspectrum` - MATLAB function that computes an FFT-based spectral estimate over each sliding window and visualizes how the frequency content of the signal changes over time[^7]  
-  - Signals are divided into segments, known as windows, allowing better frequency resolution with longer segments and better time resolution with short segments due to the inverse relationship between frequency and time, expressed as
-    $T = \frac {1}{F_s}$
+  - Signals are divided into segments, known as windows, allowing better frequency resolution with longer segments and better time resolution with short segments due to the inverse relationship between frequency and time, expressed as $T = \frac {1}{F_s}$
+
+  For a rectangular window, the frequency resolution is the width of the main lobe, expressed as $\Delta \omega = \frac {4\pi}{M+1}$ in radians or $\Delta F = \frac {\Delta \omega}{2\pi} \times Fs$ in Hz.
+
+  The time resolution of a signal is expressed as $\Delta t = MT$, where $M$ is the number of samples in the the window.
+
 - Digit 012 is chosen as a three-digit encoded test telephone number
 - **Task:** Compute the spectrogram of a three-digit encoded test telephone number
 
@@ -140,16 +144,28 @@ https://github.com/user-attachments/assets/d005f1db-a5e3-4964-b408-3e9c4b268e8b
 
 ***Digit 012 DTMF Spectrograms***
 
-*Note: Spectrograms with different [`pspectrum` parameters](https://github.com/eoommaa/DTMF/blob/8116b48234648b6b2ed58488a1872bbf9ded79b4/Spectrogram/dtmf_spectrogram.m#L125-L132)*
+*Note: Spectrograms with different [`pspectrum` parameters](https://github.com/eoommaa/DTMF/blob/8116b48234648b6b2ed58488a1872bbf9ded79b4/Spectrogram/dtmf_spectrogram.m#L125-L132)[^8]*
+
+- Ex: Spectrogram 1 (Default Balance of $\Delta F$ & $\Delta t$)
+```matlab
+% Spectrogram 1: No ΔF & 0% overlap, 'pspectrum' will find a good balance bet ΔF & Δt according to the 3-digit signal length
+pspectrum(full_signal,Fs,"spectrogram",Leakage=1,OverlapPercent=0, ...      % 0% overlap to see the signal duration and locations in time
+    MinThreshold=-10,FrequencyLimits=[650, 1500]);                          % MinThreshold = -10dB to visualize the main freq components
+```
+
 ![image](./plots/spectrogram_3.png)
 
 
 [^1]: Discrete-Time Fourier Transform (DTFT). DTFT {x[n]} ⇔ DTFT<sup>-1</sup> {X(e<sup>jω</sup>)}
 [^2]: Code by [`eoommaa`](https://github.com/eoommaa) (Part [A](https://github.com/eoommaa/DTMF/blob/main/DTF%20Based%20Implementation/dtmf_a.m), [F](https://github.com/eoommaa/DTMF/blob/main/DTF%20Based%20Implementation/dtmf_f.m),
 [G](https://github.com/eoommaa/DTMF/blob/main/DTF%20Based%20Implementation/dtmf_g.m), [Goertzel Algorithm](https://github.com/eoommaa/DTMF/blob/main/Goertzel%20Algorithm/dtmf_goertzel_alg.m),
-and [Spectrogram](https://github.com/eoommaa/DTMF/blob/main/Spectrogram/dtmf_spectrogram.m))
-[^3]: Code by [`TeddyDo915K`](https://github.com/TeddyDo915K) (Part [F](https://github.com/eoommaa/DTMF/blob/main/DTF%20Based%20Implementation/dtmf_f.m), [H](https://github.com/eoommaa/DTMF/blob/main/DTF%20Based%20Implementation/dtmf_h.m), and [I](https://github.com/eoommaa/DTMF/blob/main/DTF%20Based%20Implementation/dtmf_i.m))
+& [Spectrogram](https://github.com/eoommaa/DTMF/blob/main/Spectrogram/dtmf_spectrogram.m))
+[^3]: Code by [`TeddyDo915K`](https://github.com/TeddyDo915K) (Part [F](https://github.com/eoommaa/DTMF/blob/main/DTF%20Based%20Implementation/dtmf_f.m), [H](https://github.com/eoommaa/DTMF/blob/main/DTF%20Based%20Implementation/dtmf_h.m), & [I](https://github.com/eoommaa/DTMF/blob/main/DTF%20Based%20Implementation/dtmf_i.m))
 [^4]: [MATLAB function `fft` documentation](https://www.mathworks.com/help/matlab/ref/fft.html)
 [^5]: [MATLAB function `goertzel` documentation](https://www.mathworks.com/help/signal/ref/goertzel.html?searchHighlight=Goertzel&s_tid=srchtitle_support_results_1_Goertzel)
 [^6]: [DFT Estimation with the Goertzel Algorithm](https://www.mathworks.com/help/signal/ug/dft-estimation-with-the-goertzel-algorithm.html)
-[^7]: [Practical Introduction to Time-Frequency Analysis MATLAB documentation](https://www.mathworks.com/help/signal/ug/practical-introduction-to-time-frequency-analysis.html)
+[^7]: [Practical Introduction to Time-Frequency Analysis MATLAB documentation](https://www.mathworks.com/help/signal/ug/practical-introduction-to-time-frequency-analysis.html),
+[^8]: `pspectrum` Parameters (Spectrogram [1](https://github.com/eoommaa/DTMF/blob/8116b48234648b6b2ed58488a1872bbf9ded79b4/Spectrogram/dtmf_spectrogram.m#L115-L116),
+[2](https://github.com/eoommaa/DTMF/blob/8116b48234648b6b2ed58488a1872bbf9ded79b4/Spectrogram/dtmf_spectrogram.m#L137-L138),
+[3](https://github.com/eoommaa/DTMF/blob/8116b48234648b6b2ed58488a1872bbf9ded79b4/Spectrogram/dtmf_spectrogram.m#L146-L147), &
+[4](https://github.com/eoommaa/DTMF/blob/8116b48234648b6b2ed58488a1872bbf9ded79b4/Spectrogram/dtmf_spectrogram.m#L155-L156))
