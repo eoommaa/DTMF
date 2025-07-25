@@ -23,7 +23,7 @@ dft_mag = abs(goertzel(d8_signal, k));
 energy = dft_mag.^2;
 
 % Display results
-disp('Goertzel Algorithm''s DFT Magnitude and Energy:');
+disp('Goertzel Algorithm''s DFT Magnitude & Energy:');
 disp(table(dtmf_freqs(:), ydft(:), energy(:), 'VariableNames', {'Frequency (Hz)', 'Magnitude', 'Energy'}));
 
 
