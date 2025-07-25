@@ -109,7 +109,7 @@ disp(freq_table);
 
 %-----------------------------------------------
 % Create a subplot for 3-digit DTMF signal spectrogram w/ diff parameters
-% Spectrogram 1: No F_res & 0% overlap, 'pspectrum' will find a good balance bet freq and time res according to the 3-digit signal length
+% Spectrogram 1: No ΔF & 0% overlap, 'pspectrum' will find a good balance bet ΔF & Δt res according to the 3-digit signal length
 figure('Position', [0, 0, 830, 740]);
 subplot(2,2,1);
 pspectrum(full_signal,Fs,"spectrogram",Leakage=1,OverlapPercent=0, ...      % 0% overlap to see the signal duration and locations in time
@@ -120,19 +120,19 @@ ylabel('Frequency (kHz)');
 xlim([0, 0.5]);
 
 %{
-Experiment w/ 'pspectrum' for trading off time and freq res to get best representation of 3-digit signal
+Experiment w/ 'pspectrum' for trading off time res (Δt) & freq res (ΔF) to get best representation of 3-digit signal
 
 'pspectrum' Parameters
 - FrequencyResolution - Controls window length
-    Low F_res - Short window (choppy transitions) & good T_res
-    High F_res - Longer window (smooth transitions) & poor T_res
+    Low ΔF - Short window (choppy transitions) & good Δt
+    High ΔF - Longer window (smooth transitions) & poor Δt
 - MinThreshold - Min power limit that will be filtered on the spectrogram (e.g., -10 dB)
 - OverlapPercent - Each window overlaps the % specified in the prev window & the remaining overlap % will be in the new window
-    Low % - Longer T_res and uses a diff data as the prev window
-    High % - Smaller T_res and uses the same data as the prev window
+    Low % - Longer Δt & uses a diff data as the prev window
+    High % - Smaller Δt & uses the same data as the prev window
 %}
 
-% Spectrogram 2: F_res = 50 Hz & 50% overlap (common overlap)
+% Spectrogram 2: ΔF = 50 Hz & 50% overlap (common overlap)
 subplot(2,2,2);
 pspectrum(full_signal,Fs,"spectrogram",FrequencyResolution=50, ...
     OverlapPercent=50,MinThreshold=-60,FrequencyLimits=[650, 1500])         % MinThreshold = -60dB to remove unwanted background content
@@ -141,7 +141,7 @@ xlabel('Time (ms)');
 ylabel('Frequency (kHz)');
 xlim([0.02, 0.5]);
 
-% Spectrogram 3: F_res = 40 Hz & 99% overlap to smooth out the time windows, only 1% new data per window
+% Spectrogram 3: ΔF = 40 Hz & 99% overlap to smooth out the time windows, only 1% new data per window
 subplot(2,2,3);
 pspectrum(full_signal,Fs,"spectrogram",FrequencyResolution=40, ...
     OverlapPercent=99,MinThreshold=-60,FrequencyLimits=[650, 1500])
@@ -150,7 +150,7 @@ xlabel('Time (ms)');
 ylabel('Frequency (kHz)');
 xlim([0.03, 0.5]);
 
-% Spectrogram 4: F_res = 150 Hz & 99% overlap
+% Spectrogram 4: ΔF = 150 Hz & 99% overlap
 subplot(2,2,4);
 pspectrum(full_signal,Fs,"spectrogram",FrequencyResolution=150, ...
     OverlapPercent=99,MinThreshold=-60,FrequencyLimits=[650, 1500])
