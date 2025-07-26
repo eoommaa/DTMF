@@ -144,7 +144,7 @@ https://github.com/user-attachments/assets/d005f1db-a5e3-4964-b408-3e9c4b268e8b
 
 ***Digit 012 DTMF Spectrograms***
 
-*Note: Spectrograms with different [`pspectrum` parameters](https://github.com/eoommaa/DTMF/blob/8116b48234648b6b2ed58488a1872bbf9ded79b4/Spectrogram/dtmf_spectrogram.m#L125-L132)[^8]*
+*Note: Spectrograms with different [`pspectrum` parameters](https://github.com/eoommaa/DTMF/blob/23265028efedc3723cc8f73f632df4f716a25a4b/Spectrogram/dtmf_spectrogram.m#L125-L132)[^8]*
 
 - Ex: Spectrogram 1 (Default Balance of $\Delta F$ & $\Delta t$)
 ```matlab
