@@ -125,6 +125,11 @@ https://github.com/user-attachments/assets/d005f1db-a5e3-4964-b408-3e9c4b268e8b
 - **Task:** Compute the spectrogram of a three-digit encoded test telephone number
 
 ### Results
+*Note: A rectangular window (`Leakage = 1`) is used in `pspectrum` to improve frequency resolution*
+
+***Digit 012 Signal in Time and Frequency Domain***
+![image](./plots/spectrogram_1.png)
+
 ***Three-Digit DTMF Peak Frequencies***
 | Digit | Low Frequency (Hz) | High Frequency (Hz) |
 | :-: | :-: | :-: |
@@ -133,11 +138,6 @@ https://github.com/user-attachments/assets/d005f1db-a5e3-4964-b408-3e9c4b268e8b
 | 2 | 697 | 1336 |
 
 <br>
-
-*Note: A rectangular window (`Leakage = 1`) is used in `pspectrum` to improve frequency resolution*
-
-***Digit 012 Signal in Time and Frequency Domain***
-![image](./plots/spectrogram_1.png)
 
 ***Power Spectra of Digits 0-2***
 ![image](./plots/spectrogram_2.png)
