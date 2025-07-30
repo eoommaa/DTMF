@@ -114,15 +114,18 @@ https://github.com/user-attachments/assets/d005f1db-a5e3-4964-b408-3e9c4b268e8b
 
 # Spectrogram
 ## Digit 012 Spectrogram[^2]
-- `pspectrum` - MATLAB function that computes an FFT-based spectral estimate over each sliding window and visualizes how the frequency content of the signal changes over time[^7]  
-  - Signals are divided into segments, known as windows, allowing better frequency resolution with longer segments and better time resolution with short segments due to the inverse relationship between frequency and time, expressed as $T = \frac {1}{F_s}$
-
-  For a rectangular window, the frequency resolution is the width of the main lobe, expressed as $\Delta \omega = \frac {4\pi}{M+1}$ in radians or $\Delta F = \frac {\Delta \omega}{2\pi} \times Fs$ in Hz.
-
-  The time resolution of a signal is expressed as $\Delta t = MT$, where $M$ is the number of samples in the the window.
-
+- `pspectrum` - MATLAB function that computes an FFT-based spectral estimate over each sliding window and visualizes how the frequency content of the signal changes over time[^7]
+  - Signals are divided into segments, known as windows, affecting spectrogram depending on the window length due to the inverse relationship between frequency and time, expressed as $T = \frac {1}{F_s}$
 - Digit 012 is chosen as a three-digit encoded test telephone number
 - **Task:** Compute the spectrogram of a three-digit encoded test telephone number
+
+### Windowing and Resolution
+- **Short window:** Good time resolution and choppy transitions
+- **Longer window:** Good frequency resolution and smooth transitions
+
+  For a rectangular window, the frequency resolution is the width of the main lobe, expressed as $\Delta \omega \approx \frac {4\pi}{M+1}$ in radians or $\Delta F = \frac {\Delta \omega}{2\pi} \times Fs$ in Hz.
+
+  The time resolution of a signal is expressed as $\Delta t = MT$, where $M$ is the number of samples in the window.
 
 ### Results
 *Note: A rectangular window (`Leakage = 1`) is used in `pspectrum` to improve frequency resolution*
