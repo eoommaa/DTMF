@@ -80,7 +80,7 @@ https://github.com/user-attachments/assets/d005f1db-a5e3-4964-b408-3e9c4b268e8b
 
 ## `ttdecode2(x)` Function[^3]
 - `ttdecode2` - MATLAB function that accepts a touch-tone signal as the input, where digits and silence can have varying lengths, and decodes the input to return it as a phone number
-  - File contains two input signals that are vectors called `hardx1` and `hardx2`
+  - MATLAB code loads [`touch.mat`](https://github.com/eoommaa/DTMF/blob/main/DTF%20Based%20Implementation/touch.mat) to decode two input signals stored as vectors named `hardx1` and `hardx2`
 - **Task:** Test the MATLAB function `ttdecode2` on the two input signals in `touch.mat`
 
 ### Results
