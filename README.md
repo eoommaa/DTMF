@@ -157,14 +157,14 @@ pspectrum(full_signal,Fs,"spectrogram",Leakage=1,OverlapPercent=0, ...      % 0%
 
 
 [^1]: Discrete-Time Fourier Transform (DTFT). DTFT {x[n]} ⇔ DTFT<sup>-1</sup> {X(e<sup>jω</sup>)}
-[^2]: Code by [`eoommaa`](https://github.com/eoommaa) (Part [A](https://github.com/eoommaa/DTMF/blob/main/DTF%20Based%20Implementation/dtmf_a.m), [F](https://github.com/eoommaa/DTMF/blob/main/DTF%20Based%20Implementation/dtmf_f.m),
-[G](https://github.com/eoommaa/DTMF/blob/main/DTF%20Based%20Implementation/dtmf_g.m), [Goertzel Algorithm](https://github.com/eoommaa/DTMF/blob/main/Goertzel%20Algorithm/dtmf_goertzel_alg.m),
-& [Spectrogram](https://github.com/eoommaa/DTMF/blob/main/Spectrogram/dtmf_spectrogram.m))
-[^3]: Code by [`TeddyDo915K`](https://github.com/TeddyDo915K) (Part [F](https://github.com/eoommaa/DTMF/blob/main/DTF%20Based%20Implementation/dtmf_f.m), [H](https://github.com/eoommaa/DTMF/blob/main/DTF%20Based%20Implementation/dtmf_h.m), & [I](https://github.com/eoommaa/DTMF/blob/main/DTF%20Based%20Implementation/dtmf_i.m))
+[^2]: Code by [`eoommaa`](https://github.com/eoommaa) ([`dtmf_a.m`](https://github.com/eoommaa/DTMF/blob/main/DTF%20Based%20Implementation/dtmf_a.m), [`dtmf_f.m`](https://github.com/eoommaa/DTMF/blob/main/DTF%20Based%20Implementation/dtmf_f.m),
+[`dtmf_g.m`](https://github.com/eoommaa/DTMF/blob/main/DTF%20Based%20Implementation/dtmf_g.m), [`dtmf_goertzel_alg.m`](https://github.com/eoommaa/DTMF/blob/main/Goertzel%20Algorithm/dtmf_goertzel_alg.m),
+& [`dtmf_spectrogram.m`](https://github.com/eoommaa/DTMF/blob/main/Spectrogram/dtmf_spectrogram.m))
+[^3]: Code by [`TeddyDo915K`](https://github.com/TeddyDo915K) ([`dtmf_f.m`](https://github.com/eoommaa/DTMF/blob/main/DTF%20Based%20Implementation/dtmf_f.m), [`dtmf_h.m`](https://github.com/eoommaa/DTMF/blob/main/DTF%20Based%20Implementation/dtmf_h.m), & [`dtmf_i.m`](https://github.com/eoommaa/DTMF/blob/main/DTF%20Based%20Implementation/dtmf_i.m))
 [^4]: [MATLAB function `fft` documentation](https://www.mathworks.com/help/matlab/ref/fft.html)
 [^5]: [MATLAB function `goertzel` documentation](https://www.mathworks.com/help/signal/ref/goertzel.html?searchHighlight=Goertzel&s_tid=srchtitle_support_results_1_Goertzel)
 [^6]: [DFT Estimation with the Goertzel Algorithm](https://www.mathworks.com/help/signal/ug/dft-estimation-with-the-goertzel-algorithm.html)
-[^7]: [Practical Introduction to Time-Frequency Analysis MATLAB documentation](https://www.mathworks.com/help/signal/ug/practical-introduction-to-time-frequency-analysis.html),
+[^7]: [Practical Introduction to Time-Frequency Analysis MATLAB documentation](https://www.mathworks.com/help/signal/ug/practical-introduction-to-time-frequency-analysis.html)
 [^8]: `pspectrum` Parameters (Spectrogram [1](https://github.com/eoommaa/DTMF/blob/95b5676741261cf0e957216341d240d338d8a714/Spectrogram/dtmf_spectrogram.m#L115-L116),
 [2](https://github.com/eoommaa/DTMF/blob/95b5676741261cf0e957216341d240d338d8a714/Spectrogram/dtmf_spectrogram.m#L137-L138),
 [3](https://github.com/eoommaa/DTMF/blob/95b5676741261cf0e957216341d240d338d8a714/Spectrogram/dtmf_spectrogram.m#L146-L147), &
