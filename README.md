@@ -1,6 +1,6 @@
 # Dual-Tone Multi-Frequency (DTMF)
 - Dual-tone multi-frequency (DTMF) - The basis for voice communications control and is used worldwide in modern telephony to dial numbers and configure switch board
-- DTMF tone - Commonly known as a digit, is a signal consisting the sum of two sinusoid or tones with frequencies from two exclusive groups (low and high group frequency)
+- DTMF tone - Commonly known as a digit, is a signal consisting the sum of two sinusoids or tones with frequencies from two exclusive groups (low and high group frequency)
   
   A DTMF signal is expressed as $d_N[n] = sin(\omega_on) + sin(\omega_1n)$, where $d_N[n]$ is the digit of keypad of a discrete time index $n$, and $\omega_o$ and $\omega_1$ are the low and high DTMF in radians/sample.
   
